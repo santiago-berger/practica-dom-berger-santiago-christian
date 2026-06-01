@@ -109,6 +109,25 @@ function agregarPersonaje() {
   renderizar(personajes);
 }
 
+// Función que elimina un personaje del arreglo segun su id
+function eliminarPersonaje(id) {
+  // Crea un arreglo nuevo sin el personaje que tiene ese id
+  const nuevaLista = [];
+  for (let i = 0; i < personajes.length; i++) {
+    if (personajes[i].id !== id) {
+      nuevaLista.push(personajes[i]);
+    }
+  }
+
+  // Vacía el arreglo original y vuelve a cargarlo con la nueva lista
+  personajes.length = 0;
+  for (let i = 0; i < nuevaLista.length; i++) {
+    personajes.push(nuevaLista[i]);
+  }
+
+  renderizar(personajes);
+}
+
 // Filtrar personajes que contengan el texto ingresado en cualquier parte del nombre
 function filtrar() {
   // Pasar el texto buscado a minusculas para no distinguir mayusculas
