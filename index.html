@@ -17,7 +17,35 @@
       </div>
     </header>
 
-    <main class="container"></main>
+    <main class="container">
+      <!-- Card que contiene el formulario de agregar personaje -->
+      <section class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <h2 class="card-title h5">Agregar personaje</h2>
+          <div class="row g-2">
+            <div class="col-md-5">
+              <input
+                type="text"
+                id="input-nombre"
+                class="form-control"
+                placeholder="Nombre"
+              />
+            </div>
+            <div class="col-md-5">
+              <input
+                type="text"
+                id="input-imagen"
+                class="form-control"
+                placeholder="URL de la imagen"
+              />
+            </div>
+            <div class="col-md-2 d-grid">
+              <button id="btn-agregar" class="btn btn-success">Agregar</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <script src="assets/js/app.js"></script>
   </body>
