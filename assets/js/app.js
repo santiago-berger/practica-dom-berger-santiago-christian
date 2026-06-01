@@ -88,5 +88,33 @@ function renderizar(lista) {
   }
 }
 
+// Filtrar personajes que contengan el texto ingresado en cualquier parte del nombre
+function filtrar() {
+  // Pasar el texto buscado a minusculas para no distinguir mayusculas
+  const texto = inputFiltro.value.toLowerCase();
+
+  // Recorrer el arreglo y comparar cada nombre
+  const filtrados = [];
+  for (let i = 0; i < personajes.length; i++) {
+    const nombre = personajes[i].nombre.toLowerCase();
+    // includes devuelve true si el nombre contiene el texto buscado
+    if (nombre.includes(texto)) {
+      filtrados.push(personajes[i]);
+    }
+  }
+
+  renderizar(filtrados);
+}
+
+// Volver a mostrar todos los personajes
+function mostrarTodos() {
+  inputFiltro.value = "";
+  renderizar(personajes);
+}
+
+// Eventos de los botones con addEventListener
+btnFiltrar.addEventListener("click", filtrar);
+btnMostrarTodos.addEventListener("click", mostrarTodos);
+
 // Render inicial al cargar la pagina
 renderizar(personajes);
