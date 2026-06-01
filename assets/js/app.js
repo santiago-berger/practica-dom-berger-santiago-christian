@@ -88,6 +88,46 @@ function renderizar(lista) {
   }
 }
 
+// Función que agrega un personaje al arreglo
+function agregarPersonaje() {
+  const nombre = inputNombre.value;
+  const imagen = inputImagen.value;
+
+  // Calcula el nuevo id usando el ultimo personaje del arreglo
+  let nuevoId = 1;
+  if (personajes.length > 0) {
+    nuevoId = personajes[personajes.length - 1].id + 1;
+  }
+
+  // Agrega el nuevo objeto al final del arreglo con push
+  personajes.push({ id: nuevoId, nombre: nombre, imagen: imagen });
+
+  // Limpia los campos del formulario
+  inputNombre.value = "";
+  inputImagen.value = "";
+
+  renderizar(personajes);
+}
+
+// Función que elimina un personaje del arreglo segun su id
+function eliminarPersonaje(id) {
+  // Crea un arreglo nuevo sin el personaje que tiene ese id
+  const nuevaLista = [];
+  for (let i = 0; i < personajes.length; i++) {
+    if (personajes[i].id !== id) {
+      nuevaLista.push(personajes[i]);
+    }
+  }
+
+  // Vacía el arreglo original y vuelve a cargarlo con la nueva lista
+  personajes.length = 0;
+  for (let i = 0; i < nuevaLista.length; i++) {
+    personajes.push(nuevaLista[i]);
+  }
+
+  renderizar(personajes);
+}
+
 // Filtrar personajes que contengan el texto ingresado en cualquier parte del nombre
 function filtrar() {
   // Pasar el texto buscado a minusculas para no distinguir mayusculas
@@ -113,6 +153,7 @@ function mostrarTodos() {
 }
 
 // Eventos de los botones con addEventListener
+btnAgregar.addEventListener("click", agregarPersonaje);
 btnFiltrar.addEventListener("click", filtrar);
 btnMostrarTodos.addEventListener("click", mostrarTodos);
 
