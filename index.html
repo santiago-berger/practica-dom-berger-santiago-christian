@@ -45,6 +45,39 @@
           </div>
         </div>
       </section>
+
+      <!-- Filtro por nombre -->
+      <section class="row g-2 mb-4">
+        <div class="col-md-8">
+          <input
+            type="text"
+            id="input-filtro"
+            class="form-control"
+            placeholder="Buscar por nombre..."
+          />
+        </div>
+        <div class="col-md-2 d-grid">
+          <button id="btn-filtrar" class="btn btn-primary">Filtrar</button>
+        </div>
+        <div class="col-md-2 d-grid">
+          <button id="btn-mostrar-todos" class="btn btn-secondary">
+            Mostrar todos
+          </button>
+        </div>
+      </section>
+
+      <!-- Alerta cuando no se encuentran ningun personaje en el filtro -->
+      <div
+        id="alerta"
+        class="alert alert-warning"
+        role="alert"
+        style="display: none"
+      >
+        No se encontraron personajes.
+      </div>
+
+      <!-- Contenedor de las cards de personajes -->
+      <section id="galeria" class="row g-3"></section>
     </main>
 
     <script src="assets/js/app.js"></script>
